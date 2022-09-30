@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7de1ca1a-f349-4d51-9cba-8daeb278eaf3" name="Changes" comment="">
+    <list default="true" id="7de1ca1a-f349-4d51-9cba-8daeb278eaf3" name="Changes" comment="Проект">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/Specification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/Ingredients.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/tests/orders/CreateOrderTestCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/tests/orders/GetOrdersTestCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/tests/users/CreateUserTestCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/tests/users/EditUserTestCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/tests/users/LoginUserTestCase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
@@ -19,6 +29,9 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2FTskAUEsQUUoHWW6wpJ3MHTV8g" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -29,9 +42,107 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "last_opened_file_path": "C:/Users/p.aleksandrov/Documents/Diplom/Diplom2/src/main/java"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\p.aleksandrov\Documents\Diplom\Diplom2\src\main\java" />
+      <recent name="C:\Users\p.aleksandrov\Documents\Diplom\Diplom2\src\test\java" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean test" />
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.LoginUserTestCase">
+    <configuration name="CreateOrderTestCase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Diplom2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.orders.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests.orders" />
+      <option name="MAIN_CLASS_NAME" value="tests.orders.CreateOrderTestCase" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CreateUserTestCase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Diplom2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.users.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests.users" />
+      <option name="MAIN_CLASS_NAME" value="tests.users.CreateUserTestCase" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EditUserTestCase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Diplom2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.users.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests.users" />
+      <option name="MAIN_CLASS_NAME" value="tests.users.EditUserTestCase" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GetOrdersTestCase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Diplom2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.orders.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests.orders" />
+      <option name="MAIN_CLASS_NAME" value="tests.orders.GetOrdersTestCase" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginUserTestCase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Diplom2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.users.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests.users" />
+      <option name="MAIN_CLASS_NAME" value="tests.users.LoginUserTestCase" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.LoginUserTestCase" />
+        <item itemvalue="JUnit.EditUserTestCase" />
+        <item itemvalue="JUnit.CreateUserTestCase" />
+        <item itemvalue="JUnit.GetOrdersTestCase" />
+        <item itemvalue="JUnit.CreateOrderTestCase" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -41,6 +152,14 @@
       <option name="presentableId" value="Default" />
       <updated>1664527550883</updated>
     </task>
+    <task id="LOCAL-00001" summary="Проект">
+      <created>1664528246592</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1664528246592</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -53,5 +172,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Проект" />
+    <option name="LAST_COMMIT_MESSAGE" value="Проект" />
   </component>
 </project>
