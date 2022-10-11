@@ -44,9 +44,10 @@ public class EditUserTestCase {
         login(data.get("email"), data.get("password"));
         String newUsername = RandomStringUtils.randomAlphabetic(10);
         Response response = user.editUser(data.get("email"), data.get("password"), newUsername, data.get("accessToken"));
-
+        String token = data.get("accessToken");
         assertEquals("Неверный код ответа", 200, response.statusCode());
         assertEquals("Невалидные данные в ответе: success", true, response.path("success"));
+        user.deleteUser(token);
     }
 
     @Tag("EditUser")
@@ -58,9 +59,11 @@ public class EditUserTestCase {
         login(data.get("email"), data.get("password"));
         String newPassword = RandomStringUtils.randomAlphabetic(10);
         Response response = user.editUser(data.get("email"), newPassword, data.get("name"), data.get("accessToken"));
-
+        String token = data.get("accessToken");
         assertEquals("Неверный код ответа", 200, response.statusCode());
         assertEquals("Невалидные данные в ответе: success", true, response.path("success"));
+        user.deleteUser(token);
+
     }
 
     @Tag("EditUser")
@@ -72,9 +75,11 @@ public class EditUserTestCase {
         login(data.get("email"), data.get("password"));
         String newEmail = RandomStringUtils.randomAlphabetic(5) + "@gmail.com";
         Response response = user.editUser(newEmail, data.get("password"), data.get("name"), data.get("accessToken"));
-
+        String token = data.get("accessToken");
         assertEquals("Неверный код ответа", 200, response.statusCode());
         assertEquals("Невалидные данные в ответе: success", true, response.path("success"));
+        user.deleteUser(token);
+
     }
 
     @Tag("EditUser")
@@ -86,11 +91,16 @@ public class EditUserTestCase {
         login(data.get("email"), data.get("password"));
         String newUsername = RandomStringUtils.randomAlphabetic(10);
         Response response = user.editUser(data.get("email"), data.get("password"), newUsername, "");
-
+        String token = data.get("accessToken");
+        if(token == null)
+        {
         assertEquals("Неверный код ответа", 401, response.statusCode());
         assertEquals("Невалидные данные в ответе: success", false, response.path("success"));
         assertEquals("Невалидные данные в ответе: message", "You should be authorised", response.path("message"));
+    } else{
+        user.deleteUser(token);
     }
+}
 
     @Tag("EditUser")
     @Test
@@ -101,10 +111,15 @@ public class EditUserTestCase {
         login(data.get("email"), data.get("password"));
         String newPassword = RandomStringUtils.randomAlphabetic(10);
         Response response = user.editUser(data.get("email"), newPassword, data.get("name"), "");
-
+        String token = data.get("accessToken");
+        if(token == null)
+        {
         assertEquals("Неверный код ответа", 401, response.statusCode());
         assertEquals("Невалидные данные в ответе: success", false, response.path("success"));
         assertEquals("Невалидные данные в ответе: message", "You should be authorised", response.path("message"));
+        } else{
+            user.deleteUser(token);
+        }
     }
 
     @Tag("EditUser")
@@ -116,9 +131,14 @@ public class EditUserTestCase {
         login(data.get("email"), data.get("password"));
         String newEmail = RandomStringUtils.randomAlphabetic(5) + "@gmail.com";
         Response response = user.editUser(newEmail, data.get("password"), data.get("name"), "");
-
+        String token = data.get("accessToken");
+        if(token == null)
+        {
         assertEquals("Неверный код ответа", 401, response.statusCode());
         assertEquals("Невалидные данные в ответе: success", false, response.path("success"));
         assertEquals("Невалидные данные в ответе: message", "You should be authorised", response.path("message"));
+            } else{
+        user.deleteUser(token);
     }
+}
 }

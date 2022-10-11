@@ -31,6 +31,7 @@ public class CreateUserTestCase {
     @Before
     public void setUp() {
         user = new User();
+
     }
 
     @Tag("CreateUser")
@@ -41,7 +42,9 @@ public class CreateUserTestCase {
         Map<String,String> data = cred();
         Response response = user.createUser(data.get("email"), data.get("password"), data.get("username"));
 
+        String token = response.path("accessToken");
         assertEquals("Неверный код ответа", 200, response.statusCode());
+        user.deleteUser(token);
     }
 
     @Tag("CreateUser")
@@ -52,9 +55,15 @@ public class CreateUserTestCase {
         Map<String,String> data = cred();
         user.createUser(data.get("email"), data.get("password"), data.get("username"));
         Response response = user.createUser(data.get("email"), data.get("password"), data.get("username"));
-
+        String token = response.path("accessToken");
+        if(token == null)
+        {
         assertEquals("Неверный код ответа", 403, response.statusCode());
         assertEquals("Невалидные данные в ответе: message", "User already exists", response.path("message"));
+        } else{
+            user.deleteUser(token);
+        }
+
     }
 
     @Tag("CreateUser")
@@ -64,8 +73,14 @@ public class CreateUserTestCase {
 
         Map<String,String> data = cred();
         Response response = user.createUser(data.get("email"), data.get(""), data.get("username"));
+        String token = response.path("accessToken");
 
-        assertEquals("Неверный код ответа", 403, response.statusCode());
-        assertEquals("Невалидные данные в ответе: message", "Email, password and name are required fields", response.path("message"));
+        if(token == null)
+        {
+            assertEquals("Неверный код ответа", 403, response.statusCode());
+            assertEquals("Невалидные данные в ответе: message", "Email, password and name are required fields", response.path("message"));
+        } else{
+            user.deleteUser(token);
+        }
     }
 }

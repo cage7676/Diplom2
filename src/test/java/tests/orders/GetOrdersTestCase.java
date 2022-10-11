@@ -21,6 +21,8 @@ public class GetOrdersTestCase {
     Order order;
     Ingredients ingredients;
 
+    private String accessToken;
+
     private String createAndLoginUser(){
         String username = RandomStringUtils.randomAlphabetic(10);
         String password = RandomStringUtils.randomAlphabetic(10);
@@ -31,8 +33,18 @@ public class GetOrdersTestCase {
         return token;
     }
 
+
+
     @Before
-    public void setUp() {user = new User(); order = new Order(); ingredients = new Ingredients();}
+    public void setUp() {
+        user = new User(); order = new Order(); ingredients = new Ingredients();
+
+        accessToken = createAndLoginUser();
+        Response responseIngredients = ingredients.getIngredients();
+        List<String> ingredients = responseIngredients.path("data._id");
+        order.createOrder(ingredients, accessToken);
+
+    }
 
     @Tag("GetOrders")
     @Test
@@ -40,15 +52,12 @@ public class GetOrdersTestCase {
     public void checkAuthorizedUserReceivedOrderList() {
 
         String token = createAndLoginUser();
-
-        Response responseIngredients = ingredients.getIngredients();
-        List<String> ingredients = responseIngredients.path("data._id");
-        order.createOrder(ingredients, token);
         Response response = order.getOrders(token);
 
         assertEquals("Неверный код ответа", 200, response.statusCode());
         assertEquals("Невалидные данные в ответе: success", true, response.path("success"));
         assertThat("Заказа не существует", response.path("orders"), notNullValue());
+        user.deleteUser(accessToken);
     }
 
     @Tag("GetOrders")
@@ -56,11 +65,6 @@ public class GetOrdersTestCase {
     @DisplayName("Проверка получения списка заказ без авторизации")
     public void checkAuthorizedNotUserReceivedOrderList() {
 
-        String token = createAndLoginUser();
-
-        Response responseIngredients = ingredients.getIngredients();
-        List<String> ingredients = responseIngredients.path("data._id");
-        order.createOrder(ingredients, token);
         Response response = order.getOrders("");
 
         assertEquals("Неверный код ответа", 401, response.statusCode());

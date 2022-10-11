@@ -4,6 +4,7 @@ import io.qameta.allure.junit4.DisplayName;
 import io.qameta.allure.junit4.Tag;
 import io.restassured.response.Response;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import services.Ingredients;
@@ -33,6 +34,7 @@ public class CreateOrderTestCase {
     @Before
     public void setUp() {user = new User(); order = new Order(); ingredients = new Ingredients();}
 
+
     @Tag("CreateOrder")
     @Test
     @DisplayName("Проверка создания заказа с ингредиентами авторизованным пользователем")
@@ -45,6 +47,9 @@ public class CreateOrderTestCase {
 
         assertEquals("Неверный код ответа", 200, response.statusCode());
         assertEquals("Невалидные данные в ответе: success", true, response.path("success"));
+
+        user.deleteUser(accessToken);
+
     }
 
     @Tag("CreateOrder")
@@ -71,6 +76,8 @@ public class CreateOrderTestCase {
         assertEquals("Неверный код ответа", 400, response.statusCode());
         assertEquals("Невалидные данные в ответе: success", false, response.path("success"));
         assertEquals("Невалидные данные в ответе: message", "Ingredient ids must be provided", response.path("message"));
+
+        user.deleteUser(accessToken);
     }
 
     @Tag("CreateOrder")
@@ -82,5 +89,8 @@ public class CreateOrderTestCase {
         Response response = order.createOrder(Arrays.asList("InvalidIngredientHash"), accessToken);
 
         assertEquals("Неверный код ответа", 500, response.statusCode());
+
+        user.deleteUser(accessToken);
+
     }
 }
