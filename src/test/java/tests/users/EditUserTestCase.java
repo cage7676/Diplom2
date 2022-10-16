@@ -33,7 +33,8 @@ public class EditUserTestCase {
     }
 
     @Before
-    public void setUp() {user = new User();}
+    public void setUp() {
+        user = new User();}
 
     @Tag("EditUser")
     @Test

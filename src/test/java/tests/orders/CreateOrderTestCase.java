@@ -27,7 +27,6 @@ public class CreateOrderTestCase {
         String username = RandomStringUtils.randomAlphabetic(10);
         Response createResponse = user.createUser(email, password, username);
         String token = createResponse.path("accessToken");
-        user.loginUser(email, password);
         return token;
     }
 
